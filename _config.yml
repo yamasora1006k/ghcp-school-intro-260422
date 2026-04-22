@@ -1,0 +1,34 @@
+title: 神山まるごと高専 紹介サイト
+description: 自然豊かな神山町を舞台にした、神山まるごと高専の多言語紹介サイトです。
+baseurl: "/ghcp-school-intro-260422"
+url: "https://yamasora1006k.github.io"
+lang: ja
+languages:
+  - ja
+  - en
+
+collections:
+  news:
+    output: true
+    permalink: /news/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: news
+    values:
+      layout: post
+  - scope:
+      path: "en"
+    values:
+      lang: en
+  - scope:
+      path: ""
+    values:
+      lang: ja
+
+markdown: kramdown
+kramdown:
+  input: GFM
+
+permalink: pretty

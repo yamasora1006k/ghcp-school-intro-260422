@@ -1,0 +1,20 @@
+<section class="hero reveal">
+  <div
+    class="hero-media"
+    style="--hero-image: url('{{ include.image | relative_url }}');"
+    role="img"
+    aria-label="{{ include.image_alt }}"
+  ></div>
+  <div class="container hero-content">
+    <div class="hero-panel">
+      {% if include.kicker %}
+        <p class="eyebrow">{{ include.kicker }}</p>
+      {% endif %}
+      <h1>{{ include.title }}</h1>
+      <p>{{ include.lead }}</p>
+      {% if include.cta_url and include.cta_label %}
+        <a class="button" href="{{ include.cta_url | relative_url }}">{{ include.cta_label }}</a>
+      {% endif %}
+    </div>
+  </div>
+</section>

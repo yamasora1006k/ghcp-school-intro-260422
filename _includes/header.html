@@ -1,0 +1,37 @@
+{% assign lang = page.lang | default: site.lang %}
+{% assign locale = site.data.i18n[lang] | default: site.data.i18n[site.lang] %}
+{% if lang == 'en' %}
+  {% assign root = '/en' %}
+{% else %}
+  {% assign root = '' %}
+{% endif %}
+{% if page.alt_url %}
+  {% assign switch_url = page.alt_url %}
+{% elsif lang == 'en' %}
+  {% assign switch_url = '/' %}
+{% else %}
+  {% assign switch_url = '/en/' %}
+{% endif %}
+
+<a class="skip-link" href="#main-content">{{ locale.labels.skip_to_content }}</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="{{ root | append: '/' | relative_url }}" aria-label="{{ locale.site_name }}">
+      <span class="brand-mark">K</span>
+      <span class="brand-text">{{ locale.site_name }}</span>
+    </a>
+    <nav class="site-nav" aria-label="{{ locale.labels.global_navigation }}">
+      <a href="{{ root | append: '/' | relative_url }}">{{ locale.nav.home }}</a>
+      <a href="{{ root | append: '/about/' | relative_url }}">{{ locale.nav.about }}</a>
+      <a href="{{ root | append: '/curriculum/' | relative_url }}">{{ locale.nav.curriculum }}</a>
+      <a href="{{ root | append: '/campus-life/' | relative_url }}">{{ locale.nav.campus_life }}</a>
+      <a href="{{ root | append: '/admissions/' | relative_url }}">{{ locale.nav.admissions }}</a>
+      <a href="{{ root | append: '/news/' | relative_url }}">{{ locale.nav.news }}</a>
+      <a href="{{ root | append: '/access/' | relative_url }}">{{ locale.nav.access }}</a>
+      <a href="{{ root | append: '/gallery/' | relative_url }}">{{ locale.nav.gallery }}</a>
+    </nav>
+    <a class="lang-switch" href="{{ switch_url | relative_url }}" lang="{% if lang == 'en' %}ja{% else %}en{% endif %}">
+      {{ locale.labels.switch_lang }}
+    </a>
+  </div>
+</header>

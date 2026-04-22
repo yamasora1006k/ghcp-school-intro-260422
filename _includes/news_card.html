@@ -1,0 +1,16 @@
+{% assign post = include.post %}
+{% assign lang = include.lang | default: 'ja' %}
+
+<article class="news-card reveal">
+  <p class="news-date">
+    {% if lang == 'en' %}
+      {{ post.date | date: "%b %-d, %Y" }}
+    {% else %}
+      {{ post.date | date: "%Y.%m.%d" }}
+    {% endif %}
+  </p>
+  <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+  {% if post.summary %}
+    <p>{{ post.summary }}</p>
+  {% endif %}
+</article>
