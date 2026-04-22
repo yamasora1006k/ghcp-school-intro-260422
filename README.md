@@ -1,61 +1,49 @@
 
-# 神山まるごと高専 紹介サイト（Jekyll / GitHub Pages）
+# 神山まるごと高専 90年代風紹介ページ
 
-自然モチーフと余白を重視した、日英対応の紹介サイト試作です。
+素の HTML / CSS / JavaScript で作成した、インターネット初期風のシングルページです。
+「うるさい・使いにくい」90年代UIを再現しつつ、神山まるごと高専の概要を暫定情報として掲載しています。
 
-- 日本語: `/`
-- 英語: `/en/`
-- ニュース: `_news` コレクション
-- アニメーション: `IntersectionObserver` による `.reveal` 表示
+## プロジェクト概要
 
-## 技術スタック
+- 構成: `index.html` 1枚 + `assets/css/style.css` + `assets/js/script.js`
+- 配信方式: GitHub Pages（`main` ブランチの `/ (root)`）
+- 画像方針: 外部画像なし（絵文字・インラインSVG・CSSのみ）
+- Jekyll: 不使用（`.nojekyll` で無効化）
 
-- Jekyll（`github-pages` gem）
-- GitHub Pages（`main` ブランチ / ルート公開）
+## 公開URL
 
-## ローカル開発手順
+- https://yamasora1006k.github.io/ghcp-school-intro-260422/
 
-1. 依存関係をインストール
+## ローカルでの確認方法
 
-    ```bash
-    bundle install
-    ```
+1. リポジトリを開く
+2. `index.html` をブラウザで直接開く
 
-2. ローカルサーバー起動
+ビルドや依存関係インストールは不要です。
 
-    ```bash
-    bundle exec jekyll serve
-    ```
+## 掲載情報について
 
-3. ブラウザで確認
-
-    - `http://127.0.0.1:4000/ghcp-school-intro-260422/`
-    - `http://127.0.0.1:4000/ghcp-school-intro-260422/en/`
+このページの学校情報は、一般公知の情報をベースにした暫定テキストです。
+校長名・定員・学費など誤情報リスクの高い詳細は掲載していません。
+正式情報は公式サイトをご確認ください。
 
 ## GitHub Pages 公開手順
 
 1. `main` ブランチへ push
-2. GitHub リポジトリの Settings > Pages を開く
-3. Source を `Deploy from a branch` に設定
-4. Branch を `main`、フォルダを `/ (root)` に設定
-5. 公開URLを確認
+2. GitHub の `Settings` → `Pages` を開く
+3. `Source` を `Deploy from a branch` に設定
+4. `Branch` を `main`、フォルダを `/ (root)` に設定
+5. 数分後に公開URLへアクセスして表示を確認
 
-    - `https://yamasora1006k.github.io/ghcp-school-intro-260422/`
+## 目視確認チェック
 
-## 検証チェックリスト
-
-- 日本語・英語ページが表示できる
-- ヘッダー言語切替が対応ページへ遷移する
-- 320 / 768 / 1280px でレイアウト崩れがない
-- スクロール時の表示アニメーションが動作する
-- `prefers-reduced-motion` 有効時にアニメーションが抑制される
-- Lighthouse のアクセシビリティ・SEOを確認する
-
-## 画像素材ポリシー
-
-このリポジトリには第三者サイトから取得した画像を含めていません。
-
-- `assets/images/` には内部確認用のプレースホルダー素材を配置
-- 外部公開時は、許諾済みまたはライセンス確認済み素材へ差し替え
+- ページロード時に alert が表示される
+- ヘッダーの歓迎テキストが流れる（`<marquee>`）
+- 点滅テキストが点滅する
+- 星背景・毒々しい色のセクションが表示される
+- カーソル追従キラキラが出る
+- アクセスカウンターが 7 桁で表示され、再読込で増える
+- ナビリンクで `#top` / `#about` / `#curriculum` / `#campus` に移動できる
 
 
